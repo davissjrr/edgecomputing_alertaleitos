@@ -1,4 +1,4 @@
-# Sprint 3 - Edge Computing: Alerta Leitos
+# Challenge - First Year - Edge Computing: Alerta Leitos
 
 ## O que é o projeto?
 O projeto Alerta-Leitos é um sistema de monitoramento inteligente de leitos hospitalares, desenvolvido com o foco em melhorar a gestão hospitalar através da Internet das Coisas (IoT), unindo hardware, automação e nuvem para fornecer alertas em tempo real e dados confiáveis sobre a ocupação dos leitos.
