@@ -38,7 +38,7 @@ Este conjunto garante um feedback local direto no ambiente hospitalar, mesmo sem
 Sensores físicos são conectados a microcontroladores programados via Arduino IDE. Em seguida, os dados coletados são enviados ao Node-RED (exemplo: presença ou aunsência no leito). O Node-RED processa esses dados e os encaminha à nuvem pela plataforma Tago.io, onde os dados são armazenados, exibidos em dashboards e utilizados para disparar alertas automatizados.
 
 ### Instalação e Execução
-#### Atenção: Este projeto envolve componentes de hardware e acesso à plataformas externas. Abaixo estão os passos principais:
+⚠️ #### Atenção: Este projeto envolve componentes de hardware e acesso à plataformas externas. Abaixo estão os passos principais:
 
 1 - Configure o Arduino com os sensores e carregue o código via Arduino IDE;
 
