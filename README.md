@@ -1,14 +1,14 @@
 # Sprint 3 - Edge Computing: Alerta Leitos
 
-## Alerta-Leitos
-Alerta-Leitos é um sistema de monitoramento inteligente de leitos hospitalares, desenvolvido com foco em melhorar a gestão hospitalar através da Internet das Coisas (IoT). Ele une hardware, automação e nuvem para fornecer alertas em tempo real e dados confiáveis sobre a ocupação dos leitos.
+## O que é o projeto?
+O projeto Alerta-Leitos é um sistema de monitoramento inteligente de leitos hospitalares, desenvolvido com o foco em melhorar a gestão hospitalar através da Internet das Coisas (IoT), unindo hardware, automação e nuvem para fornecer alertas em tempo real e dados confiáveis sobre a ocupação dos leitos.
 
 ## Visão Geral
-Hospitais enfrentam desafios constantes na gestão eficiente dos seus leitos. Pensando nisso, o Alerta-Leitos surge como uma solução moderna e integrada que monitora o status de cada leito hospitalar de forma automatizada, emitindo alertas sempre que há mudanças de ocupação, desocupação ou outras condições críticas.
+Hospitais enfrentam desafios constantes na gestão eficiente dos seus leitos. Pensando nisso, o Alerta-Leitos surge como uma solução moderna e integrada que monitora o status de cada leito hospitalar de forma automatizada, emitindo alertas sempre que há mudanças no status de ocupação de cada um dos leitos.
 
 ### Tecnologias Utilizadas
 
-- Arduino IDE: Para o desenvolvimento embarcado do hardware de monitoramento (sensores de presença/pressão nos leitos).
+- Arduino IDE: Para o desenvolvimento do hardware de monitoramento (sensores de presença/pressão nos leitos).
 - Node-RED: Plataforma de automação que intermedeia os dados entre o hardware e o back-end, permitindo criação de fluxos lógicos e alertas.
 - Tago.io: Plataforma em nuvem utilizada para armazenar, processar e visualizar os dados coletados, funcionando como o "cérebro na nuvem" do projeto.
 
