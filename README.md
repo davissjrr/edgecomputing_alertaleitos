@@ -7,10 +7,9 @@ Alerta-Leitos é um sistema de monitoramento inteligente de leitos hospitalares,
 Hospitais enfrentam desafios constantes na gestão eficiente dos seus leitos. Pensando nisso, o Alerta-Leitos surge como uma solução moderna e integrada que monitora o status de cada leito hospitalar de forma automatizada, emitindo alertas sempre que há mudanças de ocupação, desocupação ou outras condições críticas.
 
 ### Tecnologias Utilizadas
+
 - Arduino IDE: Para o desenvolvimento embarcado do hardware de monitoramento (sensores de presença/pressão nos leitos).
-
 - Node-RED: Plataforma de automação que intermedeia os dados entre o hardware e o back-end, permitindo criação de fluxos lógicos e alertas.
-
 - Tago.io: Plataforma em nuvem utilizada para armazenar, processar e visualizar os dados coletados, funcionando como o "cérebro na nuvem" do projeto.
 
 ### Funcionalidades
@@ -50,9 +49,6 @@ Sensores físicos são conectados a microcontroladores programados via Arduino I
 4 - Conecte o Node-RED à sua conta do Tago.io via tokens de acesso;
 
 5 - Crie um dashboard no Tago.io e configure os widgets para visualizar os dados.
-
-## Próximos Passos:
-Nos próximos passos do projeto Alerta-Leitos, está prevista a integração com bancos de dados hospitalares, permitindo comunicação com os sistemas já utilizados. Também será otimizado o consumo de energia dos sensores, aumentando a eficiência do hardware. Entrará em desenvolvimento uma interface mobile para profissionais de saúde, facilitando o acesso às informações em tempo real. Além disso, o sistema enviará alertas por SMS, WhatsApp ou e-mail, garantindo uma resposta rápida às ocorrências detectadas.
 
 ## Contribuições
 Contribuições são muito bem-vindas! Sinta-se à vontade para abrir issues ou pull requests com sugestões, melhorias ou correções.
