@@ -44,6 +44,3 @@ Sensores físicos são conectados a microcontroladores programados via Arduino I
 3 - Importe o fluxo .json do projeto para o Node-RED;
 4 - Conecte o Node-RED à sua conta do Tago.io via tokens de acesso;
 5 - Crie um dashboard no Tago.io e configure os widgets para visualizar os dados.
-
-## Contribuições
-Contribuições são muito bem-vindas! Sinta-se à vontade para abrir issues ou pull requests com sugestões, melhorias ou correções.
