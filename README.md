@@ -19,7 +19,6 @@ O sistema Alerta-Leitos oferece monitoramento em tempo real dos leitos hospitala
 A parte física do sistema é composta por componentes simples e de baixo custo, permitindo fácil replicação:
 
 1 - Arduino Uno: Microcontrolador responsável por ler os sensores e enviar os dados ao Node-RED.
-
 2 - Servo Motor: Utilizado como indicador físico do status do leito, girando para diferentes ângulos conforme a ocupação. Seguem aqui as descrições dos ângulos:
 
 - 0° – Leito desocupado;
@@ -41,13 +40,9 @@ Sensores físicos são conectados a microcontroladores programados via Arduino I
 #### Atenção: Este projeto envolve componentes de hardware e acesso à plataformas externas. Abaixo estão os passos principais:
 
 1 - Configure o Arduino com os sensores e carregue o código via Arduino IDE;
-
 2 - Instale o Node-RED localmente ou em um servidor;
-
 3 - Importe o fluxo .json do projeto para o Node-RED;
-
 4 - Conecte o Node-RED à sua conta do Tago.io via tokens de acesso;
-
 5 - Crie um dashboard no Tago.io e configure os widgets para visualizar os dados.
 
 ## Contribuições
