@@ -1,0 +1,243 @@
+[
+    {
+        "id": "755b4e12213c2595",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2faa2a79e022065c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b2b1adc8df0d796e",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "0ab883c48ce94a92",
+        "type": "mqtt out",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "topic": "challenge_alertaleitos/1espb/ultra",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2faa2a79e022065c",
+        "x": 560,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2b39d799b3351f77",
+        "type": "mqtt in",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "topic": "challenge_alertaleitos/1espb",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2faa2a79e022065c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "89ef3851c32accdb"
+            ]
+        ]
+    },
+    {
+        "id": "89ef3851c32accdb",
+        "type": "serial out",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "serial": "b2b1adc8df0d796e",
+        "x": 650,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "34be07eebbe0f590",
+        "type": "inject",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "0ab883c48ce94a92"
+            ]
+        ]
+    },
+    {
+        "id": "serial_in_arduino",
+        "type": "serial in",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "serial": "b2b1adc8df0d796e",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "json_node"
+            ]
+        ]
+    },
+    {
+        "id": "json_node",
+        "type": "json",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "format_tago"
+            ]
+        ]
+    },
+    {
+        "id": "format_tago",
+        "type": "function",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "func": "msg.headers = {\n    'Device-Token':'fadaad92-1e50-4bec-9675-2512348bbb33',\n    'Content-Type':'application/json'\n};\n\nvar status = msg.payload.Status;\nvar color = \"\";\nvar description = status;\n\nif (status === \"Ocupado\") {\n    color = \"red\";\n} else if (status === \"Em transição\") {\n    color = \"yellow\";\n} else if (status === \"Desocupado\") {\n    color = \"green\";\n}\n\nmsg.payload = [\n    {\n        variable: \"status\",\n        value: status,\n        metadata: {\n            description: description,\n            color: color\n        }\n    }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 300,
+        "wires": [
+            [
+                "http_tago"
+            ]
+        ]
+    },
+    {
+        "id": "http_tago",
+        "type": "http request",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "api.tago.io/data",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "token",
+                "valueType": "other",
+                "valueValue": "TAGO_TOKEN"
+            },
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "debug"
+            ]
+        ]
+    },
+    {
+        "id": "debug",
+        "type": "debug",
+        "z": "755b4e12213c2595",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 300,
+        "wires": []
+    }
+]
