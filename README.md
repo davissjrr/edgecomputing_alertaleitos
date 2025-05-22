@@ -6,7 +6,7 @@ O projeto Alerta-Leitos é um sistema de monitoramento inteligente de leitos hos
 ## Visão Geral
 Hospitais enfrentam desafios constantes na gestão eficiente dos seus leitos. Pensando nisso, o Alerta-Leitos surge como uma solução moderna e integrada que monitora o status de cada leito hospitalar de forma automatizada, emitindo alertas sempre que há mudanças no status de ocupação de cada um dos leitos.
 
-### Tecnologias Utilizadas
+### Tecnologias Utilizadas no Projeto
 
 - Arduino IDE: Para o desenvolvimento do hardware de monitoramento (sensores de presença/pressão nos leitos).
 - Node-RED: Plataforma de automação que intermedeia os dados entre o hardware e o back-end, permitindo criação de fluxos lógicos e alertas.
